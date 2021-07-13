@@ -18,5 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('get-project', [TestController::class, 'getProject'])->name('get_project');
-Route::get('get-task', [TestController::class, 'getTask'])->name('get_task');
+Route::get('get-project-list', [TestController::class, 'getProjectList'])->name('get_project_list');
+Route::get('get-task-list', [TestController::class, 'getTaskList'])->name('get_task_list');
+Route::get('get-task/{data}', [TestController::class, 'getTask'])->name('get_task');

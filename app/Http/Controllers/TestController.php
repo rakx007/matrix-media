@@ -10,27 +10,38 @@ use App\Models\Task;
 class TestController extends Controller
 {    
     /**
-     * getProject
+     * getProjectList
      *
      * @return void
      */
-    public function getProject() {
+    public function getProjectList() {
         $projectList = Project::with('task')->get();
         dd($projectList);
     }
     
     /**
-     * getTask
+     * getTaskList
      *
      * @return void
      */
-    public function getTask() {
+    public function getTaskList() {
         $taskList = Task::with('project')->get();
         // dd($taskList);
 
         foreach ($taskList as $task) {
-            echo $task->project->title;
+            echo "Project Name: " . $task->project->title;
             echo "</br>";
+            echo "Task Name: " . $task->title;
+            echo "</br></br>";
         }
+    }
+
+    /**
+     * getTask
+     *
+     * @return void
+     */
+    public function getTask(Task $data) {
+        dd($data);
     }
 }

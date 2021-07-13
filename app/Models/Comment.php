@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
    
-class Post extends Model
+class Comment extends Model
 {
     use SoftDeletes;
 
-    protected $table = "post";
+    protected $table = "comment";
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
+    	'comment_id',
+        'parent_comment_id',
     	'post_id',
         'user_id',
-        'slug',
-        'title',
-        'description',
+        'comment',
         'is_active'
 	];
 }
